@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <style>
+    #container {
+      width: 500px;
+      height: 500px;
+      border: 1px solid black;
+    }
+
+    #puka {
+      position: absolute;
+      width: 100px;
+    }
+  </style>
+
+  <script>
+    let isAnimating = false;
+
+    function updatePosition(target, options) {
+      if (isAnimating == false) {
+        isAnimating == true;
+        target.animate(options, function() {
+          isAnimating = false;
+      });
+    }
+    }
+    
+
+    window.addEventListener("keydown", function (event) {
+      switch (event.code) {
+        case "KeyS":
+          break;
+        case "ArrowDown":
+          // Handle "back"
+          updatePosition($("#puka"), {
+            top: "+=100px"
+           
+          });
+          break;
+        case "KeyW":
+        case "ArrowUp":
+          // Handle "forward"
+          updatePosition($("#puka"), {
+            top: "-=100px"
+          });
+          break;
+        case "KeyA":
+        case "ArrowLeft":
+          updatePosition($("#puka"), {
+            left: "-=100px"
+          });
+          break;
+        case "KeyD":
+        case "ArrowRight":
+          updatePosition($("#puka"), {
+            left: "+=100px"
+          });
+          break;
+      }
+
+      
+    });
+  </script>
+</head>
+
+<body>
+  <div id="container">
+    <img id="puka" src="https://mblogthumb-phinf.pstatic.net/20140926_176/redslate_1411741830380j5Kou_PNG/1.png?type=w800" alt="">
+  </div>
+</body>
+
+</html>

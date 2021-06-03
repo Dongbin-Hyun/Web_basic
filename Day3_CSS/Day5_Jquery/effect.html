@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+    function hide() {
+      // $("#text").hide(500, function () {
+      //   console.log("hide!!!!!");
+      //   $("#text").show(500, function () {
+      //     $("#text").hide(500, function () {
+      //       $("#text").show(500);
+      //     });
+      //   });
+      // });
+      $("#text").hide(500)
+        .show(500)
+        .hide(500)
+        .show(500)
+        .fadeIn(500)
+        .fadeOut(500)
+        .slideUp(500)
+        .slideDown(500);
+    }
+
+    function show() {
+      $("#text").show(1000, function () {
+        console.log("22222  show!!!!!");
+      });
+
+      console.log("11111  show!!!!!");
+    }
+
+    function myAnimate() {
+      $("#box").animate({
+        left: "+=100px",
+        opacity: "0.5",
+        top: "+=100px"
+      }).animate({
+        left: "-=100px",
+        opacity: "1",
+        top: "-=100px"
+      });
+    }
+  </script>
+  <style>
+    #box {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background: green;
+    }
+  </style>
+</head>
+
+<body>
+  <h1 id="text">Hello World</h1>
+
+  <button onclick="hide()">hide</button>
+  <button onclick="show()">show</button>
+
+  <div id="box"></div>
+  <button onclick="myAnimate()">animate</button>
+
+</body>
+
+</html>

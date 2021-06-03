@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <script>
+        var i = 10;//변수
+        var str = "hello";
+        var isDone = false;//타입이 별도로 존재 x
+        
+        i = "hello";
+
+        var My_AGE = 10;//상수
+
+        let j = 10;//var와 같음 요즘은 let 사용
+        const a = 10;//const는 상수 (변경 x)
+        
+        console.log(i);
+
+        
+
+
+
+        function myfunction(){
+            alert('click');
+
+        
+
+        }
+
+        function test(i) {
+            console.log(i);
+            return 0;
+        }
+
+        function getName() {
+            let id = document.getElementById("name");
+            id.innerHTML = "<b>현동빈</b>";
+            console.log(id);
+        }
+        function getClass() {
+            let classes = document.getElementsByClassName("my-class");
+            let first = classes[0];
+            let second = classes[1];
+            console.log(first);
+            console.log(second);
+            first.innerText = "<b>바뀌었나?</b>"
+
+            second.style.color = "yellow";
+        }
+
+        function onMouseOver() {
+            console.log('onMouseOver');
+
+        }
+        function onMouseOut() {
+            console.log('onMouseOut');
+        }
+    </script>
+    <style>
+        .my-class{
+            background:red;
+        }
+        body {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+        transform: translate(-50%, -50%);
+        }
+
+    </style>
+</head>
+
+<body onload="onLoad()">
+    <div class="my-class">
+<div onclick="javascript:alert('clicked')">여기를 눌러주세요!!</div>
+<div onclick="myfunction()">여기를 눌러주세요!!</div>
+    </div>
+<button onclick="alert(test(10))">test 함수</button>
+
+<div onmouseover="onMouseOver()" onmouseout="onMouseOut()" style="width:100px; height:100px; background:yellow;">폴리텍</div>
+<script>
+    document.write("<h1>안녕</h1>");
+</script>
+
+<div id="name">이름 :</div>
+<button onclick="getName()">이름 가져오기</button>
+
+<button onclick="getClass()">클래스 가져오기</button>
+</body>
+
+</html>

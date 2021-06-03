@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습3</title>
+    <style>
+        html {
+            background: url(https://c4.wallpaperflare.com/wallpaper/953/306/412/black-hole-4k-8k-wallpaper-preview.jpg) no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        li {
+            float: right;
+        }
+
+        li a,
+        .dropbtn {
+            display: inline-block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li a:hover,
+        .dropdown:hover .dropbtn {
+            background-color: red;
+        }
+
+        li.dropdown {
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .star {
+            float: left;
+            padding-top: 7px;
+        }
+
+        .comment {
+            color: white;
+            font-size: 3vmax;
+            text-align: center;
+            padding-top: 300px
+        }
+
+        .viewMyWork {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, 500%);
+            display: inline-block;
+            border: 1px solid white;
+            color: white;
+            font-size: 20px;
+            text-align: center;
+           
+
+        }
+
+        div a {
+            overflow: hidden;
+            text-decoration: none;
+            color: white;
+
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <ul>
+        <li class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn">Dropdown</a>
+            <div class="dropdown-content">
+                <a href="http://naver.com">naver.com</a>
+                <a href="http://google.com">google.com</a>
+                <a href="http://coupang.com">coupang.com</a>
+            </div>
+        </li>
+        <li><a href="https://m.naver.com">Contract</a></li>
+        <li><a href="https://youtu.be/wgbr7exUnzE">Projects</a></li>
+        <li><a href="https://namu.wiki/w/UEFA%20챔피언스%20리그">About</a></li>
+        <li><a href="https://news.joins.com/article/23937963">Home</a></li>
+        <li class="star"> <img src="https://image.flaticon.com/icons/png/512/1828/1828884.png" width="30px"
+                height="30px"></li>
+    </ul>
+
+   
+    <div class="comment">안녕하세요. 제 이름은 <span style="color:red;">허덕형입니다.</span><br>저는 프론트엔드 개발자입니다.</div>
+    <br>
+    <br>
+    <div class="viewMyWork">
+        <a href="http://www.flaticon.com">View my work ⇨</a></li>
+    </div>
+   
+
+
+</body>
+
+</html>

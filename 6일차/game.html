@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <style>
+    #container {
+      width: 500px;
+      height: 500px;
+      border: 1px solid black;
+    }
+
+    #puka {
+      position: absolute;
+      width: 100px;
+    }
+  </style>
+
+  <script>
+    window.addEventListener("keydown", function (event) {
+      switch (event.code) {
+        case "KeyS":
+        case "ArrowDown":
+          // Handle "back"
+          updatePosition($("#puka"), {
+            top: "+=100px"
+          });
+          break;
+        case "KeyW":
+        case "ArrowUp":
+          // Handle "forward"
+          updatePosition($("#puka"), {
+            top: "-=100px"
+          });
+          break;
+        case "KeyA":
+        case "ArrowLeft":
+          updatePosition($("#puka"), {
+            left: "-=100px"
+          });
+          break;
+        case "KeyD":
+        case "ArrowRight":
+          updatePosition($("#puka"), {
+            left: "+=100px"
+          });
+          break;
+      }
+    });
+  </script>
+</head>
+
+<body>
+  <div id="container">
+    <img id="puka" src="puka.png" alt="">
+  </div>
+</body>
+
+</html>

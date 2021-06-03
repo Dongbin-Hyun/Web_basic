@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>실습4</title>
+    <style>
+        .css1 { 
+            border: 1px solid black;
+        }
+        .css2 {
+            
+            border: 1px solid black;
+            
+        }
+        .css3 {
+            border: 1px solid black;
+           
+        }
+        .css4 {
+            border: 1px solid black;  
+        }
+    </style>
+    <script>
+        $(function () {
+            $.get("https://jsonplaceholder.typicode.com/posts", function (data,status) {
+                for (i in data) {
+                    //let postuserId = data[i].userId;
+                    //let postid = data[i].id;
+                    let postTitle = data[i].title;
+                    //let postBody = data[i].body;
+
+                    //let plusContent1 = document.createElement('div');
+                    //plusContent1.innerHTML =  "<div class='css1'>" + "postuserId : " + postuserId + "</div>" + "<br>";
+                    //document.getElementById("container").appendChild(plusContent1);
+                    //let plusContent2 = document.createElement('div');
+                    //plusContent2.innerHTML =  "<div class='css2'>" + "Id(Go to comment) : " + postid + "</div>" + "<br>";
+                    //document.getElementById("container").appendChild(plusContent2);
+                    let plusContent1 = document.createElement('div');
+                    plusContent1.innerHTML =  "<div class='css3'>" + postTitle + "</div>" + "<br>";
+                    document.getElementById("container").appendChild(plusContent1);
+                    //let plusContent4 = document.createElement('div');
+                    //plusContent4.innerHTML =  "<div class='css4'>" + postBody + "</div>" + "<br>";
+                    //document.getElementById("container").appendChild(plusContent4);
+                }
+          });
+            $.get("https://jsonplaceholder.typicode.com/comments", function(data, status) {
+                if (status == "success") {
+                    alert(JSON.stringify(data));
+                    let commentArray = new Array();
+                    for (let i in data) {
+                        commentArray[i] = Json.stringify(data[i].body);        
+                    }
+                }
+            });         
+        });
+
+    
+        
+    </script>
+</head>
+<body>
+    <div id="container">
+
+    </div>
+    
+</body>
+</html>

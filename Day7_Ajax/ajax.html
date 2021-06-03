@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>제이슨</title>
+    <script>
+        function getContentAjax() {
+            $.get("https://jsonplaceholder.typicode.com/posts/1", function(data, status) {
+                console.log(data);
+                console.log(status);
+                if (status == "success") {
+                    alert(JSON.stringify(data));
+                    $("#result").html(JSON.stringify(data));
+                }
+            });
+        }
+        function getContent() {
+            //ajax 불러오기
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("result").innerHTML =
+                        this.responseText;
+                }
+            };
+            xhttp.open("GET", "ajax_info.txt", true);
+            xhttp.send();
+        }
+    </script>
+</head>
+
+<body>
+    <button id="btn" onclick="getContentAjax()">가져오기</button>
+    <div id="result"></div>
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습2(오후)</title>
+    <style>
+        .body {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size:60px;
+            text-align: center;
+        }
+        #getRed {
+            display: inline-block;
+            width: 200px;
+            height: 40px;
+            background-color: red;
+            color: white;
+            font-size: 30px;
+            text-align: center;
+        }
+        #getBlue {
+            display: inline-block;
+            width: 200px;
+            height: 40px;
+            background-color: blue;
+            color: white;
+            font-size: 30px;
+            text-align: center;
+        }
+        #getGreen {
+            display: inline-block;
+            width: 200px;
+            height: 40px;
+            background-color: green;
+            color: white;
+            font-size: 30px;
+            text-align: center;
+        }
+
+    </style>
+    <script>
+        function getName() {
+            let text = prompt("텍스트를 입력해주세요");
+            return text;   
+        }
+        function funcRed() {
+            let targetText = document.getElementById("inputName");
+            targetText.style.color = "red";
+        }
+        function funcBlue() {
+            let targetText = document.getElementById("inputName");
+            targetText.style.color = "blue";
+        }
+        function funcGreen() {
+            let targetText = document.getElementById("inputName");
+            targetText.style.color = "green";
+        }
+    </script>
+</head>
+
+<body>
+    <div class="body">
+    <script>
+        document.write("<div id='inputName'>" + getName() + "</div>");
+    </script>
+    <button id="getRed" onclick="funcRed()">RED</button>
+    <button id="getBlue" onclick="funcBlue()">BLUE</button>
+    <button id="getGreen" onclick="funcGreen()">GREEN</button>  
+    </div>
+</body>
+</html>

@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>피카츄 게임</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+  <style>
+    html {
+      cursor: url("asset/pokeball.cur"), auto;
+      position: absolute;
+      margin: 0;
+      width: 100%;
+      height: 100%;
+
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    #container {
+      position: absolute;
+      margin: 0;
+      width: 100%;
+      height: 100%;
+
+    }
+
+    #myScore {
+      font-family: "pokemon";
+      position: absolute;
+      left: 2%;
+      top: -5%;
+      font-size: 8vmin;
+      color: crimson;
+
+    }
+
+    #howToPlay {
+      font-family: "pokemon";
+      position: absolute;
+      left: 2%;
+      top: 9%;
+      font-size: 2vmin;
+      color: crimson;
+
+    }
+
+    #pikachu {
+      position: absolute;
+      bottom: 5%;
+      left: 3%;
+      width: 20vmin;
+      height: 20vmin;
+    }
+
+    #thunderMark {
+      display: none;
+      position: absolute;
+      bottom: 12%;
+      left: 13%;
+      width: 5vmin;
+      height: 5vmin;
+      transform: scaleX(-1);
+
+    }
+
+    #enemy {
+      position: absolute;
+      bottom: 5%;
+      right: 5%;
+      width: 10vmin;
+      height: 10vmin;
+
+    }
+
+    #npc1 {
+      position: absolute;
+      top: 65%;
+      left: 45%;
+      width: 10vmin;
+      height: 10vmin;
+      transform: scaleX(-1);
+
+
+    }
+
+    #npc2 {
+      position: absolute;
+      top: 66%;
+      left: 25%;
+      width: 8vmin;
+      height: 8vmin;
+      transform: scaleX(-1);
+
+
+    }
+
+    #npc3 {
+      position: absolute;
+      top: 66%;
+      left: 36%;
+      width: 6vmin;
+      height: 6vmin;
+      transform: scaleX(-1);
+
+    }
+
+    #npc4 {
+      position: absolute;
+      top: 65%;
+      left: 30%;
+      width: 9vmin;
+      height: 9vmin;
+      transform: scaleX(-1);
+
+    }
+
+    #npc5 {
+      position: absolute;
+      top: 64%;
+      left: 39%;
+      width: 10vmin;
+      height: 10vmin;
+      transform: scaleX(-1);
+    }
+
+    #npc6 {
+      position: absolute;
+      top: 5%;
+      right: 10%;
+      width: 35vmin;
+      height: 35vmin;
+
+    }
+
+    #background {
+      background: url("asset/background.png");
+      background-size: contain;
+      background-position: 0 center;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      animation-name: bg-slide;
+      animation-duration: 20s;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+    }
+
+    #gameOverAlert {
+      opacity: 100%;
+    }
+
+    #gameOverMent {
+      display: none;
+      font-family: "pokemon";
+      position: absolute;
+      left: 35%;
+      top: 20%;
+      font-size: 10vmin;
+      color: black;
+
+    }
+
+    @font-face {
+      src: url("asset/PokemonSolid.ttf");
+      font-family: "pokemon";
+    }
+
+    @keyframes bg-slide {
+      0% {
+        background-position: 0 center;
+      }
+
+      100% {
+        background-position: -1000% center;
+      }
+    }
+  </style>
+
+  <script>
+
+  </script>
+</head>
+
+<body>
+  <div id="container">
+    <div id="background"></div>
+    <img id="pikachu" src="asset/running.gif" alt="">
+    <img id="thunderMark" src="asset/thunderMark.png" alt="">
+    <img id="enemy" src="asset/pokemonball.gif" alt="">
+    <img id="npc1" src="asset/lapras.gif" alt="">
+    <img id="npc2" src="asset/lapras.gif" alt="">
+    <img id="npc3" src="asset/lapras.gif" alt="">
+    <img id="npc4" src="asset/lapras.gif" alt="">
+    <img id="npc5" src="asset/lapras.gif" alt="">
+    <img id="npc6" src="asset/rizamong.gif" alt="">
+    <div id="myScore">Score : <span class=finalScore>0</span></div>
+    <div id="howToPlay">
+      <br>
+      JUMP : SPACE<br>
+      Z KEY : ATTACK<br>
+    </div>
+    <div id="gameOverMent">
+      <span id="firstMent">Game Over</span><br>
+      <span id="secondMent">Score : <span class=finalScore>0</span></span>
+    </div>
+
+  </div>
+
+  <iframe src="asset/silence.mp3" allow="autoplay" id="audio" style="display:none"></iframe>
+  <audio id="audio" autoplay loop="infinite">
+    <source src="asset/mainbgm.mp3">
+  </audio>
+
+  </div>
+
+  <script>
+    let pikachu = $("#pikachu");
+    let isJumping = false;
+    let isFiring = false;
+    let scoreCnt = 0;
+    let scoreCheck = true;
+    let randomEnemySpeed = 0;
+    let pikaDead = new Audio("asset/PikaScream.mp3");
+    let pikaThunder = new Audio("asset/PikachuEcho.mp3");
+    let pikaJump = new Audio("asset/Pikaaaa.mp3");
+
+
+    //주인공 점프
+    function jump() {
+      isJumping = true;
+      pikachu.animate({
+        bottom: "+=20vmin"
+      }, 600).animate({
+        bottom: "-=20vmin"
+      }, 1000, function () {
+        isJumping = false;
+      });
+    }
+    function goForward() {
+      //isForwarding = false;
+      $("#pikachu").animate({
+        right: "+=2vmin"
+      }, 600)
+    };
+    function goBack() {
+      //isReturning = false;
+      $("#pikachu").animate({
+        left: "+=2vmin"
+      }, 600)
+    };        
+
+    //스페이스바 누르면 점프
+    $("body").keydown(function (event) {
+      switch (event.code) {
+        case "Space":
+          //스페이스 연타 방지
+          if (isJumping == false) {
+            pikaJump.play();
+            jump();
+          }
+          break;
+        case "39":
+          if (isForwarding == false) {   
+            goForward();
+          }
+          break;
+        case "37":
+          if (isReturning == false) {   
+            goBack();
+          }
+          break;  
+        case "KeyZ":
+          //Z키 누르면 번개 발사
+          if (isFiring == false) {
+            pikaThunder.play();
+            $("#thunderMark").show();
+            thunderMarkMove();
+          }
+          break;
+      }
+    });
+
+    //번개이동
+    function thunderMarkMove() {
+      $("#thunderMark").animate({
+        left: "100%"
+      }, 900, function () {
+        $("#thunderMark").css("left", "13%");
+        $("#thunderMark").hide();
+      }
+
+      )
+    };
+
+    //난수생성함수
+    function rand(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    //적 이동
+    function enemyMove() {
+      let randomEnemySpeed = rand(1500, 4000);
+      $("#enemy").animate({
+        right: "100%"
+      }, randomEnemySpeed, function () {
+        $("#enemy").css("right", "-100%");
+        scoreCnt += 100;
+        $(".finalScore").text(scoreCnt);
+        scoreCheck = true;
+      }
+      )
+    };
+
+    //죽음 체크
+    function deadCheck() {
+      let isDead = false;
+
+      let pikachu = $("#pikachu");
+      let enemy = $("#enemy");
+
+      let pikachuLeftX = parseInt(pikachu.css("left"));
+      let pikachuRightX = parseInt(pikachu.css("left")) +
+        parseInt(pikachu.css("width")) + 30;
+      let pikachuBottomY = parseInt(pikachu.css("bottom"));
+      let enemyRightX = parseInt(enemy.css("right"));
+      let enemyLeftX = parseInt(enemy.css("left")) + 45;
+      let enemyBottomY = parseInt(enemy.css("height"));
+
+      if ((enemyLeftX < pikachuRightX) && pikachuBottomY < enemyBottomY && enemyLeftX > 0) {
+        isDead = true;
+        scoreCheck = false;
+
+      }
+
+      return isDead;
+    }
+
+    //번개체크
+    function thunderCheck() {
+      let isCrash = false;
+      let thunderMark = $("#thunderMark");
+      let enemy = $("#enemy");
+
+      let thunderMarkLeftX = parseInt(thunderMark.css("left"));
+      let thunderMarkRightX = parseInt(thunderMark.css("left")) +
+        parseInt(thunderMark.css("width"));
+      let thunderMarkBottomY = parseInt(thunderMark.css("bottom"));
+      let enemyRightX = parseInt(enemy.css("right"));
+      let enemyLeftX = parseInt(enemy.css("left"));
+      let enemyBottomY = parseInt(enemy.css("height"));
+
+      if (enemyLeftX < thunderMarkRightX && $("#thunderMark").css("display") != "none") {
+        scoreCnt += 100;
+        $(".finalScore").text(scoreCnt);
+        isCrash = true;
+      }
+      return isCrash;
+    };
+
+
+
+    setInterval(function () {
+      enemyMove();
+
+      if (deadCheck()) {
+        pikaDead.play();
+        alert("Final Score " + scoreCnt);
+        scoreCnt = 0;
+        $(".finalScore").text(scoreCnt);
+        window.location.reload();
+      }
+      if (thunderCheck()) {
+        $("#thunderMark").stop(false, true);
+        $("#enemy").stop(false, true);
+
+      }
+
+    }, 1);
+
+
+
+  </script>
+</body>
+
+</html>

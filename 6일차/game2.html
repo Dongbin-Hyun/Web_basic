@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+  <style>
+    #container {
+      position: absolute;
+      width: 90%;
+      height: 500px;
+      border: 1px solid black;
+    }
+
+    #puka {
+      position: absolute;
+      left: 50px;
+      bottom: 50px;
+      width: 100px;
+    }
+
+    #enemy {
+      position: absolute;
+      width: 100px;
+      right: -150px;
+      bottom: 50px;
+      filter: grayscale();
+    }
+  </style>
+
+  <script>
+    window.addEventListener("keydown", function (event) {
+      switch (event.code) {
+        case "Space":
+          jump();
+          break;
+      }
+    });
+
+    function jump() {
+      $("#puka").animate({
+        bottom: "+=100px"
+      }).animate({
+        bottom: "-=100px"
+      });
+    }
+
+    $(function () {
+      $("#enemy").animate({
+        right: "110%"
+      }, 3000);
+    });
+  </script>
+</head>
+
+<body>
+  <div id="container">
+    <img id="puka" src="puka.png" alt="">
+
+    <img id="enemy" src="puka.png" alt="">
+  </div>
+</body>
+
+</html>
