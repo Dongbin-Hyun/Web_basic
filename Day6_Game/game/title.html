@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>레츠고 피카츄</title>
+    <script>
+        $("#container").css({ "cursor": "url(pokemonball.gif), auto" });
+    </script>
+
+    <style>
+        html {
+            cursor: url("asset/pokeball.cur"), auto;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+
+        }
+
+        #container {
+            position: absolute;
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            border: 1px solid black;
+        }
+
+        #titleName {
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60%;
+            height: 30%;
+
+        }
+
+        #background {
+            background: url("asset/background.png");
+            background-size: contain;
+            background-position: 0 center;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            animation-name: bg-slide;
+            animation-duration: 20s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+        }
+
+        #pikachu {
+            position: absolute;
+            bottom: 5%;
+            left: 3%;
+            width: 20vmin;
+            height: 20vmin;
+
+
+        }
+
+        #houhou {
+            position: absolute;
+            transform: scaleX(-1);
+            left: 0%;
+            bottom: 40%;
+            width: 40vmin;
+            height: 40vmin;
+
+        }
+
+        #rugia {
+            position: absolute;
+            right: 0%;
+            bottom: 40%;
+            width: 30vmin;
+            height: 30vmin;
+
+        }
+
+        #startGame {
+            font-family: "pokemon";
+            font-size: 2vw;
+            text-decoration: none;
+            color: black;
+            cursor: url("asset/pokeball.cur"), auto;
+            position: absolute;
+            top: 60%;
+            left: 52%;
+            transform: translate(-50%, -50%);
+
+        }
+
+        #exitGame {
+            font-family: "pokemon";
+            font-size: 2vw;
+            position: absolute;
+            top: 67%;
+            left: 57%;
+            transform: translate(-50%, -50%);
+            width: 20%;
+            height: 10%;
+        }
+
+        @keyframes bg-slide {
+            0% {
+                background-position: 0 center;
+            }
+
+            100% {
+                background-position: -1000% center;
+            }
+        }
+
+        @font-face {
+            src: url("asset/PokemonSolid.ttf");
+            font-family: "pokemon";
+        }
+    </style>
+
+    <script>
+        function startPage() {
+            window.location.href = "letsGoPikachu.html";
+
+        }
+
+
+
+        function exitPage() {
+            self.close();
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+    <div id="container">
+        <div id="background" alt=""></div>
+        <img id="titleName" src="asset/pokemonTitle.png" alt="">
+        <img id="pikachu" src="asset/running.gif" alt="">
+        <img id="houhou" src="asset/npc2.gif" alt="">
+        <img id="rugia" src="asset/npc3.gif" alt="">
+        <div id="startGame" onclick="startPage()" alt="">Start Game</a></div>
+        <div id="exitGame" onclick="exitPage()" alt="">Exit Game</div>
+        <iframe src="asset/silence.mp3" allow="autoplay" id="audio" style="display:none"></iframe>
+        <audio id="audio" autoplay loop="infinite">
+            <source src="asset/titlebgm.mp3">
+        </audio>
+    </div>
+
+
+</body>
+
+</html>

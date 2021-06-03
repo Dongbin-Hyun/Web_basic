@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습4</title>
+    <style>
+        button {
+            display: inline-block;
+            width: 200px;
+            height: 40px;
+            background-color: gray;
+            color: white;
+            font-size: 30px;
+            text-align: center;
+
+        }
+        .body {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+    <script>
+        function htmlC(_this) {
+            _this.style.color = "black";
+            _this.style.backgroundColor = "white";
+            _this.style.border = "1px solid black";
+            document.getElementById("css").style.color = "white";
+            document.getElementById("css").style.background = "gray";
+            document.getElementById("javascript").style.color = "white";
+            document.getElementById("javascript").style.background = "gray";
+        }
+        function cssC(_this) {
+            _this.style.color = "black";
+            _this.style.backgroundColor = "white";
+            _this.style.border = "1px solid black";
+            document.getElementById("html").style.color = "white";
+            document.getElementById("html").style.background = "gray";
+            document.getElementById("javascript").style.color = "white";
+            document.getElementById("javascript").style.background = "gray";
+        }
+        function javascriptC(_this) {
+            _this.style.color = "black";
+            _this.style.backgroundColor = "white";
+            _this.style.border = "1px solid black";
+            document.getElementById("html").style.color = "white";
+            document.getElementById("html").style.background = "gray";
+            document.getElementById("css").style.color = "white";
+            document.getElementById("css").style.background = "gray";
+        }
+    </script>
+</head>
+
+<body>
+    <div class="body">
+    <h1>실습4</h1>
+    <button id="html" onmouseover="htmlC(this)" type="submit">html</button>
+    <button id="css" onmouseover="cssC(this)" type="submit">css</button>
+    <button id="javascript" onmouseover="javascriptC(this)" type="submit">javascript</button>
+    </div>
+
+</body>
+
+</html>

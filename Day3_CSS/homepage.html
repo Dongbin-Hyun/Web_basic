@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <title>홈페이지</title>
+    <style>
+        #navigation {
+            background: rgb(43, 43, 43);
+            color: white;
+            height: 50px;
+            display: flex;
+            align-items: center;
+
+        }
+
+        .nav-item {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            margin: 0px 16px;
+
+        }
+
+        .nav-item:nth-child(1) {
+            margin-right: auto;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        #body {
+            margin: auto;
+            color: white;
+        }
+
+        #main {
+            height: 90%;
+            display: flex;
+            background: url(https://s.yimg.com/uu/api/res/1.2/HdgdEv.oNLVjf2MzwD6DTg--~B/Zmk9ZmlsbDtoPTM4Njt3PTY3NTthcHBpZD15dGFjaHlvbg--/https://s.yimg.com/os/creatr-images/2020-05/0f4f8eb0-9abd-11ea-bfdf-e44a0f4d2585.cf.webp);
+            background-repeat: no-repeat;
+            background-size: cover;
+            filter: grayscale(20%);
+
+        }
+
+        html body {
+            height: 100%;
+
+        }
+
+        .mybutton {
+            border: 1px solid white;
+            background-color: transparent;
+            color: white;
+            padding: 8px;
+
+
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navigation">
+        <span class="nav-item"><i class="fas fa-grin-stars"></i></span>
+        <a class="nav-item" href="#">Home</a>
+        <a class="nav-item" href="#">About</a>
+        <a class="nav-item" href="#">Projects</a>
+        <a class="nav-item" href="#">Contact</a>
+
+    </div>
+    <div id="main">
+        <div id="body">
+            안녕하세요, 제 이름은 오준석입니다<br>
+            저는 프론트엔드 개발자입니다.
+            <br><br><br>
+            <button class="mybutton">View my work<i class="far fa-arrow-alt-circle-right"></i></button>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+
+    function myValidate() {
+      // 취미는 3개 이상 선택
+      if ($("input:checkbox[name=hobby]:checked").length < 3) {
+        alert("취미는 3개 이상 선택");
+        return false;
+      }
+      //   직업은 1개 이상 선택
+      // ! =
+      if ($("select[name=job]").val() === '') {
+        alert("직업은 1개 이상 선택");
+        return false;
+      }
+      //   성별 1개이상 선택
+      //   비밀번호는 5자 이상
+      if ($("input:password").val().length < 5) {
+        alert("비밀번호는 5자 이상");
+        return false;
+      }
+
+      //   아이디는 이메일형식
+      let reg = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/;
+
+      if (reg.test($("#id").val()) == false) {
+        alert("아이디는 이메일형식");
+        return false;
+      }
+
+      //   취소 누르면 초기화
+
+      //   회원가입 누르면
+      //   위의 조건 확인
+      //   조건이 맞지 않으면 알림
+      //   조건이 모두 맞으면 회원가입완료 알림
+      alert("회원가입 완료!!!");
+      return true;
+    }
+
+    function mySubmit() {
+      if (myValidate()) {
+        // 성공시 회원가입
+      } else {
+        // 실패
+      }
+    }
+
+  </script>
+</head>
+
+<body>
+  <form action="">
+    <div>
+      아이디
+      <input type="text" id="id">
+    </div>
+    <div>
+      비밀번호
+      <input type="password" name="" id="">
+    </div>
+    <div>
+      성별
+      <input type="radio" name="gender" id="" checked>남자
+      <input type="radio" name="gender" id="">여자
+    </div>
+    <div>
+      직업
+      <select name="job" id="job">
+        <option value=""></option>
+        <option value="개발자">개발자</option>
+        <option value="기획자">기획자</option>
+        <option value="디자이너">디자이너</option>
+      </select>
+    </div>
+    <div>
+      취미
+      <input type="checkbox" name="hobby" id=""> 개발
+      <input type="checkbox" name="hobby" id=""> 게임
+      <input type="checkbox" name="hobby" id=""> 낚시
+      <input type="checkbox" name="hobby" id=""> 운동
+      <input type="checkbox" name="hobby" id=""> 독서
+      <input type="checkbox" name="hobby" id=""> 음악감상
+    </div>
+    <div>
+      <input type="reset" value="취소">
+      <input type="button" value="회원가입" onclick="mySubmit()">
+    </div>
+  </form>
+</body>
+
+</html>

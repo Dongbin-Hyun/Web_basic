@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>제이쿼리 활용 1</title>
+    <style>
+
+    </style>
+    <script>
+        $(document).ready(function () {
+            $(".body").css({ "position": "absolute", "top": "40%", "left": "50%", "transform": "translate(-50%, -50%)" });
+            $("button").css({
+                "display": "inline-block", "width": "200px", "height": "40px", "background": "gray", "color": "white",
+                "font-size": "30px", "text-align": "center"
+            });
+        });
+
+
+
+
+        $(function () {
+            $("#html").click(function () {
+                htmlC(this);
+            });
+            $("#css").click(function () {
+                cssC(this);
+            });
+            $("#javascript").click(function () {
+                javascriptC(this);
+            });
+
+        });
+
+
+
+        function htmlC(_this) {
+            _this.style.color = "black";
+            _this.style.backgroundColor = "white";
+            _this.style.border = "1px solid black";
+            document.getElementById("css").style.color = "white";
+            document.getElementById("css").style.background = "gray";
+            document.getElementById("javascript").style.color = "white";
+            document.getElementById("javascript").style.background = "gray";
+        }
+        function cssC(_this) {
+            _this.style.color = "black";
+            _this.style.backgroundColor = "white";
+            _this.style.border = "1px solid black";
+            document.getElementById("html").style.color = "white";
+            document.getElementById("html").style.background = "gray";
+            document.getElementById("javascript").style.color = "white";
+            document.getElementById("javascript").style.background = "gray";
+        }
+        function javascriptC(_this) {
+            _this.style.color = "black";
+            _this.style.backgroundColor = "white";
+            _this.style.border = "1px solid black";
+            document.getElementById("html").style.color = "white";
+            document.getElementById("html").style.background = "gray";
+            document.getElementById("css").style.color = "white";
+            document.getElementById("css").style.background = "gray";
+        }
+    </script>
+</head>
+
+<body>
+    <div class="body">
+        <h1>실습3</h1>
+        <button id="html" type="submit">html</button>
+        <button id="css" type="submit">css</button>
+        <button id="javascript" type="submit">javascript</button>
+    </div>
+
+</body>
+
+</html>

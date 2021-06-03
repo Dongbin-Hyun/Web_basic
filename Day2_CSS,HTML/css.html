@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연습</title>
+    <style>
+        div {
+            background: yellow;
+        }
+
+        .bg_blue {
+            background: blue;
+            background-image: url(https://media.vingle.net/images/ca_l/s9btcgoms9.jpg);
+        }
+
+        #text1 {
+            background: aqua;
+            color: red;
+        }
+
+        #text2 {
+            background: black;
+            color: palegoldenrod;
+        }
+
+        /* div 중 2번째에만 적용 */
+        div:nth-child(2) {
+            background: purple;
+            color: skyblue;
+        }
+
+        .my_text {
+            color: skyblue;
+        }
+
+        #_block {
+            display: block;
+        }
+
+        #_inline {
+            display: inline;
+            background: silver;
+            width: 400px;
+            /*width 안됨*/
+        }
+
+        #_inlineblock {
+            /*가장 자유로움*/
+            display: inline-block;
+            width: 200px;
+            height: 80px;
+        }
+
+        #_none {
+            color: chartreuse;
+            background: red;
+            width: 30px;
+            height: 15px;
+        }
+
+        #_textcolor {
+            color: red;
+        }
+
+        ._textalign {
+            text-align: center;
+            background: skyblue;
+            color: crimson;
+        }
+    </style>
+    <link rel="stylesheet" href="css.css" </head>
+
+<body>
+    <div style="background:red">Hello world</div>
+    <div>Hello world</div>
+    <h1>Hello world</h1>
+    <div class="bg_blue">Hello world</div>
+    <div class="bg_blue my_text">Hello world</div>
+    <div id="text1">Hello world</div>
+    <div id="text2">Hello world</div>
+    <div id="_display">display</div>
+    <div id=_block>block</div>
+    <div id=_inline>inline</div>
+    <div id=_inlineblock>inlineblock</div>
+    <div id=_none>none</div>
+    <h1>Div와 Span</h1>
+    <div>
+        <span style="background:green">span1</span>
+        <span style="background:red">span2</span>
+        <span style="background:blue">span3</span>
+    </div>
+    <br>
+    <div id="_textcolor">textcolor</div>
+    <div class="_textalign">textalign</div>
+
+
+
+</body>
+
+</html>

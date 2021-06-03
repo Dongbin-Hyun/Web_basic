@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <title>체크박스 실습</title>
+    <script>
+        $(document).ready(function () {
+            $("#logButton").click(function () {
+                if ($("input:checkbox[name=mycheck]:checked").length == 0) { alert("선택하지 않으셨습니다. 선택해주세요"); }
+                else if ($("input:checkbox[value=check1]:checked").is(":checked") == true) { alert("kim"); }
+                else if ($("input:checkbox[value=check2]:checked").is(":checked") == true) { alert("lee"); }
+                else if ($("input:checkbox[value=check3]:checked").is(":checked") == true) { alert("park"); }
+                else if ($("input:checkbox[value=check4]:checked").is(":checked") == true) { alert("hyun"); }
+                else if ($("input:checkbox[value=check5]:checked").is(":checked") == true) { alert("koo"); }
+                else if ($("input:checkbox[value=check6]:checked").is(":checked") == true) { alert("yang"); }
+            });
+
+            $("#logButton").css({
+                "width": "80px",
+                "background": "gray",
+                "border": "1px solid black",
+                "position": "absolute",
+                "left": "300px"
+            });
+
+            $(".logtable").css({
+                "text-align": "center"
+            });
+
+            $("#cell1").css({
+                "width": "50px"
+            });
+
+            $("#cell2").css({
+                "width": "200px"
+            });
+
+            $("#cell3").css({
+                "width": "100px"
+
+            });
+
+        });
+
+
+
+        function selectAll(selectAll) {
+            const checkboxes
+                = document.getElementsByName("mycheck");
+
+            checkboxes.forEach((checkbox) => {
+                checkbox.checked = selectAll.checked;
+            });
+        };
+        function checkOnlyOne(element) {
+
+            const checkboxes
+                = document.getElementsByName("mycheck");
+
+            checkboxes.forEach((cb) => {
+                cb.checked = false;
+            })
+
+            element.checked = true;
+        }
+
+
+
+    </script>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <table class="logtable" border="1">
+        <tr id="row1">
+            <td id="cell1"><input type="checkbox" onclick="selectAll(this)" name="mycheck" value="checkAll"
+                    id="checkAll">확인</td>
+            <td id="cell2">제목</td>
+            <td id="cell3">글쓴시간</td>
+        </tr>
+        <tr id="row2">
+            <td id="cell4"><input type="checkbox" onclick="checkOnlyOne(this)" name="mycheck" value="check1"
+                    id="check1">
+            </td>
+            <td id="cell5">
+                <c id="kim">kim
+            </td>
+            <td id="cell6">
+                <c class="time">11:11:00</c>
+            </td>
+        </tr>
+        <tr id="row3">
+            <td id="cell7"><input type="checkbox" onclick="checkOnlyOne(this)" name="mycheck" value="check2"
+                    id="check2">
+            </td>
+            <td id="cell8">
+                <c id="lee">lee
+            </td>
+            <td id="cell9">
+                <c class="time">11:11:00</c>
+            </td>
+        </tr>
+        <tr id="row4">
+            <td id="cell10"><input type="checkbox" onclick="checkOnlyOne(this)" name="mycheck" value="check3"
+                    id="check3">
+            </td>
+            <td id="cell11">
+                <c id="park">park
+            </td>
+            <td id="cell12">
+                <c class="time">11:11:00</c>
+            </td>
+        </tr>
+        <tr id="row5">
+            <td id="cell13"><input type="checkbox" onclick="checkOnlyOne(this)" name="mycheck" value="check4"
+                    id="check4">
+            </td>
+            <td id="cell14">
+                <c id="hyun">hyun
+            </td>
+            <td id="cell15">
+                <c class="time">11:11:00</c>
+            </td>
+        </tr>
+        <tr id="row6">
+            <td id="cell6"><input type="checkbox" onclick="checkOnlyOne(this)" name="mycheck" value="check5"
+                    id="check5">
+            </td>
+            <td id="cell7">
+                <c id="koo">koo
+            </td>
+            <td id="cell8">
+                <c class="time">11:11:00</c>
+            </td>
+        </tr>
+        <tr id="row7">
+            <td id="cell19"><input type="checkbox" onclick="checkOnlyOne(this)" name="mycheck" value="check6"
+                    id="check1"></td>
+            <td id="cell20">
+                <c id="yang">yang
+            </td>
+            <td id="cell21">
+                <c class="time">11:11:00</c>
+            </td>
+        </tr>
+    </table>
+    <button id="logButton">로그
+
+</body>
+
+</html>

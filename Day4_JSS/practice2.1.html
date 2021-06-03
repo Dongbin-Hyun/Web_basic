@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습2</title>
+</head>
+<script>
+    function getNumber() {
+        let number = prompt("숫자를 입력해주세요.");
+        if (number >= 1 && number <= 100) {
+            for (let i = 1; i <= 100; i++) {
+                console.log(i);
+            } alert("완료되었습니다.");
+            return "완료되었습니다.";
+        } else if (number > 100) {
+            alert("1이상 100이하를 넣어주세요.");
+            return getNumber();
+        } else if (isNaN(number) || number == "") {
+            alert("숫자를 입력해주세요");
+            return getNumber();
+        } else if (number == null) {
+            alert("취소하셨습니다.");
+            return "취소하셨습니다.";
+        }
+    }
+</script>
+
+<body>
+    <script>document.write(getNumber());</script>
+</body>
+
+</html>
